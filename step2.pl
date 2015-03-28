@@ -1,11 +1,9 @@
 /* definition des predicats de base */
-/* house(place, color, nationality, drink, smoke, animal) */
+/* house(place, color, nationality, smoke, drink, animal) */
 
-a_droite(X, Y) :- (E is Y + 1), E is X.
-
+a_droite(X, Y) :- (Z is Y + 1), Z is X.
 a_cote_de(N, M) :- a_droite(N, M).
 a_cote_de(N, M) :- a_droite(M, N).
-
 enigme(Problem) :-
 Problem = 
 [
@@ -18,8 +16,8 @@ Problem =
 member(house(_, rouge, anglais, _, _, _), Problem),
 member(house(_, _, suedois, _, _, chiens), Problem),
 member(house(_, _, danois, _, the, _), Problem),
-member(house(N, verte, _, _, cafe, _), Problem),
-member(house(M, blanche, _, _, _, _), Problem),
+member(house(M, verte, _, _, cafe, _), Problem),
+member(house(N, blanche, _, _, _, _), Problem),
 a_droite(N, M),
 member(house(_, _, _, pallmall, _, oiseaux), Problem),
 member(house(_, jaune, _, dunhill, _, _), Problem),
@@ -37,4 +35,4 @@ member(house(O, _, _, dunhill, _, _), Problem),
 a_cote_de(L, O),
 member(house(_, _, _, bluemaster, biere, _), Problem),
 member(house(_, _, allemand, prince, _, _), Problem),
-member(house(_, _, _, _, _, fish), Problem).
+member(house(_, _, _, _, _, poisson), Problem).
