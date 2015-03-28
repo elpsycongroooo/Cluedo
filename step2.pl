@@ -1,10 +1,7 @@
 /* definition des predicats de base */
 /* house(place, color, nationality, drink, smoke, animal) */
 
-a_droite(2, 1).
-a_droite(3, 2).
-a_droite(4, 3).
-a_droite(5, 4).
+a_droite(X, Y) :- (E is Y + 1), E is X.
 
 a_cote_de(N, M) :- a_droite(N, M).
 a_cote_de(N, M) :- a_droite(M, N).
